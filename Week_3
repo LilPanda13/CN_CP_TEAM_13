@@ -1,1 +1,25 @@
-
+%% Answer code of NAME (student number)
+clear
+>> edit
+% Q3.1) Which condition should our trials satisfy in order to be considered "correct" trials? 
+% Create new array consisting of zeros and ones, 0 = does not satisfy condition/1 = satisfies condition
+% check the 'strcmp' function
+% check 'myTable.NAMEOFCOLUMN'
+>> mySelection = myVariable (myIndex);
+strcmp = (stimulus, response)
+% Q3.2) Do we need to use our newly created logical array as the row index or column index? And what do we need to use as the other index?
+% Q3.3) Complete the code to create a new table called 'correctTrials' that contains all information from myTable for only the correct trials. Use logical indexing here!
+>> myTable(1,:) % gives you the first row of a table 
+>> myTable(:,1) % gives you the first column of a table 
+% Q3.4: Complete the code to create a new column in our correctTrials table that represents  the reaction time.  
+% Q3.5: Complete the code to plot the reaction times for all correct trials. For the x-axis, use the trialNumber column, and for the y-axis, use the reactionTime column.
+% Q3.6: Create a variable called outliers that is a logical array containing 1 if the reaction time  on a trial is an outlier, and 0 otherwise. We’ll define being an outlier as being higher than 2  standard deviations above the mean. You’re allowed to use the functions mean and std. 
+% Q3.7: Create a new table correctTrials_no_outliers table so that it only contains  non-outliers. Hint: the MATLAB symbol for ‘not’ is a tilde (~). 
+% Q3.8: After confirming that the outliers are indeed removed, you can overwrite your earlier correctTrials table with the new correctTrials_no_outliers table (to prevent  having to type such a long name many times). Make sure to add the following line to your  script: 
+>> correcTrials = correctTrials_no_outliers; 
+% Q3.9: Complete the code to plot the reaction times of random trials versus the reaction times on sequence trials. You can use logical indexing again to select the trials that are “random” and those that are “sequence”. 
+% Q3.10: Does the plot look like you expected? How do you interpret these results? 
+% Q3.11: In your analysis script (for one subject), create a variable called finalTrials that stores the last 200 correct trials. 
+% Q3.12: Select the random and sequence trials from the finalTrials and store them ineparate variables (for example, finalRandom and finalSequence). 
+% Q3.13: Calculate the performance score (this should be the difference in average reaction time between the random and the sequence trials). 
+% Q3.14: You can now run your script on 1 subject, but also on several other subjects. [see canvas]
