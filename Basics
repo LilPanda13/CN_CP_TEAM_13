@@ -1,0 +1,171 @@
+A = zeros (10) ;
+for i = 1:10
+disp ('Hello world') ; 
+end
+help zeros
+doc zeros
+a = 10
+% a variable is a placeholder to store a certain number OR string
+a
+% how to ask for the content of a variable
+dis (a)
+help disp
+a ;
+% semicolon at the end means the output will not be shown
+b = 'this is a string, not a number' ;
+%% Q1.1: What is the output if you do 'disp (b)'?
+% Array is a variable that consists of a set of numbers stored together
+A = [8, 9, 10, 11]
+% creates a simple array of 4 numbers
+size (A)
+% helps check the size of the array
+length (A)
+%% Q1.2: What is the difference between 'size' and 'length'
+A (1)
+% you can extract a specific element form an array by specifying its position, this is called an index
+A (1:3)
+% also extracts multiple elements
+A (:)
+% also extracts all
+A (end)
+% also extracts only the last one
+A (2:end)
+A (end-1:end)
+% also extracts last two 
+A = [8; 9; 10; 11]
+% makes 4 rows instead of columns (use ',' for columns and ';' for rows)
+A' 
+% Transpose array (swapping rows and columns) with an apostrophe
+[A; 4]
+% Adds another row to A
+%% Q1.3: What happens when you do [A, 4] instead of [A; 4]?
+B = [8, 9, 10; 12, 13, 14, 15]
+%% Q1.4: What is the size of B? What is its length?
+C = [12; 13; 14; 15]
+D = [A, C]
+% To combine arrays into a larger array or matrix
+%% Q1.5: What should you type to combine A and C into one single long array of 8 elements?
+D (4, 2)
+%% Q1.6: Which element did you get? What is its position in the matrix (row, column)? How can you get all the elements of the last 2 rows?
+E = [10:20] 
+F = [10:2:20]
+% To create an array of elements ranging from one number all the way to another number use :
+%% Q1.7: What is the difference between E and F? What does the middle 2 do?
+%% Q1.8: Make an array G of [40 37 34 ... 22] by using the colon operator :
+%% Q1.9: Build a 3x8 matrix with random numbers (try help rand)
+clear A
+% to clear out the workspace of a specific variable
+% A struct is a data type in MATLAB that groups related data using data containers called fields. Each field can contain any type of data. Access data in a field using dot notation of the form.
+ourdata.name = {'jan', 'piet', 'marie'}
+ourdata.height = [173 201 165]
+ourdata.weight = [64 95 24]
+%% Q.1.10: Adda a fourth datapoint to the data struct ourdata with the name john, height 190 and weight 140. What if you type ourdata.name(3)?
+name = {'jan'; 'piet'; 'marie'}
+height = 173; 201; 165]
+weight = [64; 95; 54]
+myTable = table (name, height, weight 'VariableNames', {'name', 'height', 'weight'})
+% To access valyes in a table use their named index and numerical index
+myTable.height
+myTable ([2:3],:)
+tallPeople = height > 190;
+myTable (tallPeople,:)
+% To add a new subject (row) or feature (column) to our table by making a new table and then adding it to our existing table:
+T2 = table ({'john'}, 190, 120, 'VariableNames', {'name', 'height', 'weight'})
+myTable = [myTable;T2]
+% Can also add by defining a new variable in the table directly
+myTable.BMI = (myTable.weight)./((myTable.height/100).^2);
+10 + 11
+a + 10
+A * 10
+Q1.11: What does * do? How can you divide an array by a number?
+% just * and / do matrix multiplication and a tupe of matrix division, instead use .* and ./ for pairwise multiplication and division.
+A2 = A - 10
+%% Q1.12: What is the difference between the above command the below 
+A2 = A - [10;9;8;6]
+%% Q1:13: What do you get when you input two arrays?
+A - C
+%% Q1.14: What do you get when you do A - B, and why?
+10 == 11
+% a single equal is to assign a number to a variable, a double is used to evaluate if they are the same
+X = 11 > 10
+% can also store the output of this operation, a > b tests if a is larger than b, b;a < b tests if a is smaller than b and >= and <= test...
+B == 9
+% To ask if a matrix contains a certain value
+%% Q1.15: What do you get as an answer?
+strcmp (a,b) 
+% is used to check if two string variable are similar 
+a = 'this is a string of text'
+b = 'this is a strong of text'
+c = 'string'
+strcmp (a, b)
+strcmp (a, c)
+% Boolean operations can be used for if...then...else construction
+if BOOLEAN
+...
+else
+...
+end
+% for example:
+y = 5
+if y == 10
+disp (y)
+else
+disp ('too bad: y is not 10')
+end
+% another example:
+y = 5
+if y == 10
+dis ('YES! y is equal to 10')
+elseif y == 5
+dis ('COOL! y is equal to 5')
+else
+disp ('too bad: y is not 5 nor 10')
+end
+% For-Loop is used to perform the same operations on a set of elements repeatedly
+for i = 1:10
+...
+end
+% example
+for i = 1:10
+disp (i)
+end
+% example
+a = 3;
+b = 8;
+c = 0;
+for i = a:b
+disp (a+c);
+c = c + 1;
+end
+% for-loop can be used for an array and perform an operation on each of the elements.
+z = [2:11]
+for i = 1:length(z)
+zout (i) = z(i) * 10;
+end
+%% Q1.17: Why don't you see anything? What is the output of this loop?
+%% Q1.18: What happens when you change the loop to:
+for i = 1:length (z)
+Z(i) = Z(i) * 10;
+end
+% while-loop can be run as long as a certain condition is true.
+a = 5
+while a == 5
+disp ('running')
+end
+% to kill a command, press CTRL + C
+a = 0
+while a < 10
+disp (a);
+a = a + 1
+end
+% this is a finite loop
+%% Q1.19: Why is each number displayed twice? How to solve this?
+% to write commands into script 
+myscript.m
+edit
+myfirstfunction.m
+myfirstfunction (10)
+% Functions can take multiple variables as input and include multiple lines of instructions
+%% Q1.20: Write a script of all the code snippets from this tutorial.
+%% Q1:21: Write a function that takes an integer (whole number) as an input and checks whether it is an odd or even number
+% Hint: whats the difference in outcome between dividing an even number or an odd number by 2?
