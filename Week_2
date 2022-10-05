@@ -1,0 +1,43 @@
+% Start with making two separate variables for now, one for the first measurement and one for the second measurement.
+IQ_firstmeasurement = [100 102 98 112 85 45 120 70 120 125]
+IQ_secondmeasurement = [103 100 101 120 85 105 90 70 120 126]
+%% Q2.1: Find the lowest score of the group by navigating to the exercises folder and open the function 'get_minimum.m'
+lowestIQ = get_minimum (IQ_firstmeasurement)
+%% Q2.2: Find the highest score by completing the function 'get_maximum' in the exercises folder. Do not use 'max'.
+%% Q2.3: Use the function to get the highest IQ in the sample
+highestIQ = get_maximum (IQ_firstmeasurement)
+% If your function returns an error, debug it by running it line by line.
+% To debug your get_maximum function, create a breakpoint where needed and create some variable in a command window
+A = [1, 4, 2, 6, 10] ; 
+x = get_maximum (A)
+% when you debug, the command window changes to k>>
+% once the error is corrected, quit debugging by typing
+kk >> dbquit
+%%Q2.4: Open function get_mean.m to fill in the function as such that it computes the mean over an input array A and gives back the mean value of that array
+% hint: the mean of a set of numbers is their sum divided byt he number of elements in the set (length of array). Make your own function using for-loop and length
+%%% ASSIGNMENT: MAKE THE get_mean.m FUNCTION TO WORK FOR ALL POSSIBLE INPUT OF NUMBER ARRAYS (e.g. [1 2 3] or [90 299 20020 2002020]). 
+%% Q2.5: Compute the group mean of the first and second measurement using the new get_mean function. Over the group of 10 subjects, did the IQ score go UP or DOWN after treatment (ignoring statistical significance).
+%% Q2.6: In the dataset there are 'paired samples' meaning each of the subjects was measured twice. Each column this matches between the two measurements. Use this information to first compute a difference score per subject and second compute the mean difference score over the entire group. What is the mean difference and what did you find?
+%% Q2.7: Load the much larger second dataset TherapyIQdata.mat
+clear
+load TherapyIQdata.mat
+% to check which variables are added to the workspace using the command
+who
+%% Q2.8: What are the minimum, maximum and mean of measurement 1 and 2? 
+%% Q2.9: Which subjects performed the best and worst in measurement 1? Hint: you can use find to find the index of a certain number in an array. The variable subjectcodes describes the names of the included participants.
+%% Q2.10: Which subject gained the most? Which the least? 
+%% Q2.11: Check for raw data points for any abnormalities by visualisation. Make a plot of the IQ scores before and after the treatment. Use figure and plot fucntions
+figure, plot (IQ_firstmeasurement_largesample, '.')
+%% Q2.12a: To get further insight, compute the median (middle value after sorting the set from lowest to highest) which is less sensitive to outliers than the mean. To do so, sort the data.
+%%% MAKE YOUR OWN FUNCTION get_sortedvalues.m YOUR FUNCTION SHOULD TAKE AN ARRAY A AND THEN SORT THE VALUES IN A FROM LOW TO HIGH VALUES:
+get_sortedvalues (IQ_secondmeasurement_largesample)
+51 51 57 57 60 61 61 63 63 64 64
+% Bubble sorttakes an array and runs through the array of values, 2 consecutive items at a time (so you need a for loop for this). If item1<item2 then nothing is done (they are already in the right order), but if item1>item2 they are switched. You run the procedure through the array of numbers until (so you need a while loop as well) no swaps are made. The end result is a sorted array of numbers.
+%% Q2.12b: Now that you have made the get_sortedvalues.m function, build a get_medium.m function (if A is your array, sort A first)
+function M = get_median(A)
+...
+A_sorted = get_sortedvalues(A);
+M = ... find the middle element of A_sorted
+% use the function to then find the median in IQ_secondmeasurement_largesample
+%% Q2.13: To test for significant effect, use the t-test (ttest)
+[H, P, CI, STATS] = ttest (IQ_secondmeasurement_largesample - IQ_firstmeasurement_largesample)
